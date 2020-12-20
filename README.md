@@ -1,2 +1,2 @@
 # visual-imu-odo
-A note to record my learning process
+A note to record slam-learning process
