@@ -1,0 +1,32 @@
+%YAML:1.0
+---
+type: IMU
+name: mynteye
+Gyr:
+   unit: " rad/s"
+   avg-axis:
+      gyr_n: 2.2846118832898045e-05
+      gyr_w: 3.6586956541230662e-07
+   x-axis:
+      gyr_n: 0.
+      gyr_w: 0.
+   y-axis:
+      gyr_n: 6.8538356498694131e-05
+      gyr_w: 1.0976086962369199e-06
+   z-axis:
+      gyr_n: 0.
+      gyr_w: 0.
+Acc:
+   unit: " m/s^2"
+   avg-axis:
+      acc_n: 1.3580132658702846e-02
+      acc_w: 3.9247172902613929e-04
+   x-axis:
+      acc_n: 1.0479045394701353e-02
+      acc_w: 2.2369725348039913e-04
+   y-axis:
+      acc_n: 1.3252871171788898e-02
+      acc_w: 2.5114083758501340e-04
+   z-axis:
+      acc_n: 1.7008481409618290e-02
+      acc_w: 7.0257709601300529e-04

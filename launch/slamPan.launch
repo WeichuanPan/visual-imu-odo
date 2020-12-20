@@ -1,0 +1,9 @@
+ <launch>
+  <node name="play" pkg="rosbag" type="play" output="screen" args="-l /home/weic/Research/ResearchSLAM/catkin_ws/src/slamPan/Data/12-01.bag"> 
+  </node>
+
+  <node name="slam_pan" pkg="slam_pan" type="slam_pan" launch-prefix="gnome-terminal -e" output="screen">
+  </node>
+
+  <node pkg="rviz" name="rviz" type="rviz" args="-d /home/weic/Research/ResearchSLAM/catkin_ws/src/slamPan/rvizs/slampan1.rviz"/>
+</launch>

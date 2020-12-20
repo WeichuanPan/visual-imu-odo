@@ -1,0 +1,23 @@
+<launch>
+
+<arg name="kalibrYaml" default="${find slam_pan}/camera_imu_param/camchain-imucam-images_imu.yaml"/>
+<arg name="imuYaml" default="${find slam_pan}/camera_imu_param/mynteye-imu_param.yaml"/>
+<arg name="bagFusionData" default="${find slam_pan}/Data/12-01.bag"/>
+<node name="play" pkg="rosbag" type="play" output="screen" args="-l bagFusionData">
+</node>
+<group ns=slamPan>
+    <rosparam command="load" file="$(arg kalibrYaml)"/>
+    <rosparam command="load" file="$(arg imuYaml)"/>
+    <param name="leftCamera" value="${kalibrYaml}/cam0"/>
+    <param name="rightCamera" value="{kalibrYaml}/cam1"/>
+    <param name="imu" value="$(imuYaml)"/>
+    
+    <node name="slam_pan" pkg="slam_pan" type="slam_pan" launch-prefix="gnome-terminal -e" output="screen">
+    <remap from="/imu" to="/mynteye/imu/data_raw"/>
+    <remap from="/leftCamera" to="/mynteye/left/image_raw"/>
+    <remap from="/rightCamera" to="/mynteye/right/image_raw"/>
+    </node>
+</group>
+
+<node  pkg="rviz" name="rviz" type="rviz" args="-d /home/weic/Research/ResearchSLAM/catkin_ws/src/slamPan/rvizs/slampan1.rviz"/>
+</launch>
